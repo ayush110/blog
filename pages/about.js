@@ -23,7 +23,7 @@ function About() {
 
             <div >
             <h2 className="text-2xl font-bold text-left mb-6">About</h2>
-            <h2 className="text-md text-left mb-3">Hey, this page is still being worked on In the meantime, check out this fun little collage of things I like! Also, feel free to reach out :) </h2>
+            <h2 className="text-md text-left mb-3">Hey, this page is still being worked on. In the meantime, check out this fun little collage of things I like! Also, feel free to reach out :) </h2>
             </div>
             
             <Image src={backgroundImg}/>
