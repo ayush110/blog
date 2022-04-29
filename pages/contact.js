@@ -12,6 +12,7 @@ import linkedin from "../public/linkedin.svg";
 import github from "../public/github.svg";
 import twitter from "../public/twitter.svg";
 
+
 function Contact() {
   
   return (
@@ -55,9 +56,12 @@ function Contact() {
             </main>
 
         
-<div>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/ayush110/30min" style={{ minWidth: '320px', height:"700px" }}></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<div >
+<InlineWidget url="https://calendly.com/ayush110/30min"
+styles={{
+  height: '700px'
+}} />
+   
 </div>
    <Footer/>
    </div>
