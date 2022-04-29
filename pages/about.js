@@ -37,6 +37,8 @@ function About() {
                     
             </main>
             </div>
+            <br></br>
+            <br></br>
             <Footer/>
 
     </div>
