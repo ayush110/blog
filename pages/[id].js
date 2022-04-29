@@ -17,7 +17,7 @@ export const Text = ({ text }) => {
       text,
     } = value;
     return (
-      <span
+      <span 
         className={[
           bold ? styles.bold : "",
           code ? styles.code : "",
@@ -27,7 +27,7 @@ export const Text = ({ text }) => {
         ].join(" ")}
         style={color !== "default" ? { color } : {}}
       >
-        {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
+        {text.link ? <a href={`/${text.link.url}`}>{text.content}</a> : text.content}
       </span>
     );
   });
@@ -35,7 +35,7 @@ export const Text = ({ text }) => {
 
 const renderBlock = (block) => {
   const { type, id } = block;
-  console.log(block);
+  
   const value = block[type];
 
   switch (type) {
@@ -71,7 +71,7 @@ const renderBlock = (block) => {
     case "numbered_list_item":
       return (
       
-        <li><Text text={value.text} /></li>
+        <li key={value.text}><Text text={value.text} /></li>
         
       );
     case "to_do":
@@ -119,8 +119,8 @@ const renderBlock = (block) => {
 
 export default function Post({ page, blockes }) {
 
-
-  const date = new Date(page.last_edited_time).toLocaleString(
+  //POST HEADER INFORMATION
+  const date = new Date(page.properties['Last Edited'].last_edited_time).toLocaleString(
     "en-US",
     {
       month: "short",
@@ -132,7 +132,7 @@ export default function Post({ page, blockes }) {
   const title = page.properties.Title.title;
   const postId = page.id;
   
-
+ 
   let imgSrc = "";
   let hasImage = false;
   if ( page.properties.Cover.files.length != 0){
@@ -147,9 +147,8 @@ export default function Post({ page, blockes }) {
   const description = page.properties.Description.rich_text[0].plain_text;
   const tags = page.properties.Tags.multi_select;
 
-
-
-
+  //----------------------------------------------------------
+  
   if (!page || !blockes) {
     return <div />;
   }
@@ -158,15 +157,14 @@ export default function Post({ page, blockes }) {
        
         <Head>
         <title>{page.properties.Title.title[0].plain_text}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon-modified.png" />
       </Head>
 
     <Navbar/>
       <article className={styles.container}>
-      <div class="w-4/5 mx-auto mt-32">
+      <div className="w-4/5 mx-auto mt-32">
       <p class="text-indigo-500 text-md font-medium">{type}</p>
-      
-        <h1 class="font-bold">
+        <h1 className="font-bold">
           <Text text={page.properties.Title.title} />
         </h1>
         <p class="text-gray-700  font-light text-lg pb-3">{description}</p>
@@ -188,7 +186,7 @@ export default function Post({ page, blockes }) {
                                 </div>
                                 </div>
 
-        <section class="mt-4">
+        <section className="mt-4">
           {blockes.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}
             
@@ -214,10 +212,9 @@ export const getStaticPaths = async () => {
   const database = await getDatabase(databaseId);
   return {
     paths: database.map((page) => ({ params: { id: page.id } })),
-    fallback: true,
+    fallback: false,
   };
 };
-
 export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
@@ -235,6 +232,8 @@ export const getStaticProps = async (context) => {
         };
       })
   );
+
+  
   //Returns blocks AND their children
   const blocksWithChildren = blocks.map((block) => {
     // Add child blocks if the block should contain children but none exists
@@ -254,3 +253,5 @@ export const getStaticProps = async (context) => {
     revalidate: 1,
   };
 };
+
+
