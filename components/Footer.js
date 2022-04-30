@@ -57,6 +57,11 @@ function Footer() {
         <div class="mr-3 hover:text-stone-400">
     <Link href="contact" ><a>contact</a></Link>
         </div>
+       
+        <div class="mr-3 text-stone-300">|</div>
+        <div class="mr-3 hover:text-stone-400">
+    <Link href="https://drive.google.com/file/d/1968twQ1dTwo8BmGl3VFQA9KtQb1folsv/view?usp=sharing" ><a>resume</a></Link>
+        </div>
     </div>
       
    
