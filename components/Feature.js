@@ -9,14 +9,14 @@ function Feature() {
         <div class="mt-12 mx-5 md:flex md:justify-center md:relative md:inline-block">
                 
                 <div class="hidden md:inline-block mt-24">
-                <Image src={backgroundImg} width={450} height={450}/>
+                <Image src={backgroundImg} width={450} height={450} priority={true}/>
                 </div>
 
               
               <div class="md:flex md:inline-block md:absolute justify-center  ">
 
                     <div class="text-center">
-                    <Image src={self} />
+                    <Image src={self} priority={true} />
                     </div>
 
                     <div class=" md:inline-block text-center md:text-left self-center mx-auto ">

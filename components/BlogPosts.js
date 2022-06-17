@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-
+import Image from 'next/image'
 import { Text } from "../pages/[id].js";
 
 function BlogPosts({posts}) {
@@ -51,7 +51,8 @@ function BlogPosts({posts}) {
                     <Link href={`/${postId}`} className="w-full block h-full">
                         <a>
 
-                        {(hasImage) ?  (<img alt="blog photo" src={imgSrc} className="max-h-40 w-full object-cover " />) : console.log('no image')}
+                        {(hasImage) ?  (<Image alt="blog photo" src={imgSrc} className="max-h-40 w-full object-cover " />) : console.log('no image')}
+                        
                         <div className="bg-white w-full p-4">
                             <p className="text-indigo-500 text-md font-medium">
                                 {type}
