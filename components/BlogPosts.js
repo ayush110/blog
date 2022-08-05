@@ -51,7 +51,7 @@ function BlogPosts({posts}) {
                     <Link href={`/${postId}`} className="w-full block h-full">
                         <a>
 
-                        {(hasImage) ?  (<Image alt="blog photo" src={imgSrc} className="max-h-40 w-full object-cover " />) : console.log('no image')}
+                        {/*(hasImage) ?  (<Image alt="blog photo" src={imgSrc} width='100%' height='100%' objectFit="cover" className="max-h-40 w-full object-cover " />) : console.log('no image')*/}
                         
                         <div className="bg-white w-full p-4">
                             <p className="text-indigo-500 text-md font-medium">
