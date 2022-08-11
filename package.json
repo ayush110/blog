@@ -32,5 +32,6 @@
   "bugs": {
     "url": "https://github.com/ayush110/blog/issues"
   },
-  "homepage": "https://github.com/ayush110/blog#readme"
+  "homepage": "https://github.com/ayush110/blog#readme",
+  "devDependencies": {}
 }
